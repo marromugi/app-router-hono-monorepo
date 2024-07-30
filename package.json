@@ -5,9 +5,17 @@
   "main": "index.js",
   "scripts": {
     "app": "pnpm -F \"app\"",
-    "api": "pnpm -F \"api\""
+    "api": "pnpm -F \"api\"",
+    "build": "turbo build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^2.0.9"
+  },
+  "packageManager": "pnpm@8.15.1",
+   "engines": {
+     "pnpm": ">=8.15.1"
+   }
 }
