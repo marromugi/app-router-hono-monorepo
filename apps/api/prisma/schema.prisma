@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Sheet {
+  id              String       @id @default(uuid())
+  title           String       @default("")
+  code            String       @unique
+  code_expired_at DateTime
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  payments        Payment[]
+  sheetUsers      SheetUser[]
+  tags            Tag[]
+}
+
+model User {
+  id            String       @id @default(uuid())
+  name          String
+  password      String
+  password_salt String       @default("")
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  sheetUsers    SheetUser[]
+}
+
+model SheetUser {
+  id            String     @id @default(uuid())
+  nickname      String
+  color         String
+  userId        String
+  user          User       @relation(fields: [userId], references: [id])
+  payments      Payment[]
+  sheetId       String
+  sheet         Sheet      @relation(fields: [sheetId], references: [id])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  paymentSplits PaymentSplit[]
+
+  @@unique([userId, sheetId])
+}
+
+model Payment {
+  id            String     @id @default(uuid())
+  paymentId     String     @unique
+  title         String
+  amount        Int
+  status        String
+  sheetId       String
+  sheetUserId   String
+  sheet         Sheet      @relation(fields: [sheetId], references: [id])
+  sheetUser     SheetUser  @relation(fields: [sheetUserId], references: [id])
+  tags          PaymentTag[] 
+  splits        PaymentSplit[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([sheetId])
+  @@index([sheetUserId])
+}
+
+model Tag {
+  id        String     @id @default(uuid())
+  name      String
+  sheetId   String
+  sheet     Sheet      @relation(fields: [sheetId], references: [id])
+  payments  PaymentTag[] 
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([name, sheetId])
+}
+
+model PaymentTag {
+  paymentId String
+  tagId     String
+  payment   Payment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([paymentId, tagId])
+}
+
+model PaymentSplit {
+  id          String     @id @default(uuid())
+  amount      Int
+  percentage  Float      @default(0.0)
+  sheetUserId String
+  paymentId   String
+  sheetUser   SheetUser  @relation(fields: [sheetUserId], references: [id])
+  payment     Payment    @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  @@unique([sheetUserId, paymentId])
+  @@index([paymentId])
+  @@index([sheetUserId])
+}

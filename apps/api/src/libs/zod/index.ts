@@ -1,3 +1,4 @@
+import { VALIDATION_REGEX } from '@/const/validate'
 import { z as BaseZod } from 'zod'
 
 export const z = {
@@ -8,6 +9,8 @@ export const z = {
       minLength ? `${minLength}文字以上入力してください` : '必須です'
     ),
   optionalString: () => BaseZod.string().optional(),
+  alphabetAndNumber: () =>
+    BaseZod.string({ required_error: '必須です' }).min(1, '必須です').regex(VALIDATION_REGEX.alphabetAndNumber),
   /**ドメイン情報を含むバリデーション */
   domain: {
     userColor: () =>

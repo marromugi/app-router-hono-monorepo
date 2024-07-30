@@ -1,11 +1,10 @@
-import { ApiType } from "api";
-import { hc } from "hono/client";
+import { ApiType } from 'api'
+import { hc } from 'hono/client'
 
-export const client = hc<ApiType>('http://localhost:8787', {
-    init: {
-      credentials: 'include',
-      mode: 'cors',
-      cache: 'no-store'
-    }
-  })
-
+export const client = hc<ApiType>(process.env.NEXT_PUBLIC_API_URL ?? '', {
+  init: {
+    credentials: 'include',
+    mode: 'cors',
+    cache: 'no-store'
+  }
+})
