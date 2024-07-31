@@ -15,7 +15,7 @@
     "@magi-ui/core": "^0.3.2",
     "@magi-ui/system": "^0.3.2",
     "@radix-ui/react-dialog": "^1.1.1",
-    "@tumi/api": "workspace:^",
+    "@tumi/api": "workspace:*",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.3.2",
