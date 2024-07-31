@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/const/cookie.ts"],"names":["COOKIE_ID","sheetId"],"mappings":"AAAO,IAAMA,EAAY,CACvB,YAAa,SACb,UAAYC,GAAoB,MAAMA,CAAO,EAC/C","sourcesContent":["export const COOKIE_ID = {\n  accessToken: 'nhp-at',\n  sheetUser: (sheetId: string) => `su-${sheetId}`\n} as const\n"]}
