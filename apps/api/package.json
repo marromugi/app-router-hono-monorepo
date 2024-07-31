@@ -20,14 +20,14 @@
     "typescript": "^5",
     "wrangler": "^3.57.2"
   },
-  "main": "./src/lib.ts",
-  "module": "./src/lib.ts",
-  "types": "./src/lib.ts",
+  "main": "./dist/lib.cjs",
+  "module": "./dist/lib.mjs",
+  "types": "./dist/lib.d.ts",
   "exports": {
     ".": {
-      "import": "./src/lib.ts",
-      "require": "./src/lib.ts",
-      "types": "./src/lib.ts"
+      "import": "./dist/lib.mjs",
+      "require": "./dist/lib.cjs",
+      "types": "./dist/lib.d.ts"
     }
   }
 }

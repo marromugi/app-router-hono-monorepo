@@ -18,9 +18,11 @@ import cors from './middleware/cors'
 import jwt from './middleware/jwt'
 import jwtPayload from './middleware/jwtPayload'
 import bearerToken from './middleware/bearerToken'
-import { createApp } from './libs/hono'
+import { Hono } from 'hono'
 
-export const route = createApp()
+const app = new Hono()
+
+export const route = app
   .basePath('/api')
   .route('/example', example)
   .route('/*', cors)

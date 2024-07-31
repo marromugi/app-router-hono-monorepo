@@ -6,5 +6,5 @@ export const checkAuthorization = (
   sheet: Pick<Sheet, 'id'> & { users: Pick<User, 'id'>[] },
   jwtPayload: Variables['jwtPayload']
 ) => {
-  return sheet.id === jwtPayload.sheetId && sheet.users.some((u) => u.id === jwtPayload.userId)
+  return sheet.users.some((u) => u.id === jwtPayload.userId)
 }
