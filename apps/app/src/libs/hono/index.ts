@@ -1,4 +1,4 @@
-import { ApiType } from 'api'
+import { ApiType } from '@tumi/api'
 import { hc } from 'hono/client'
 
 export const client = hc<ApiType>(

@@ -1,4 +1,4 @@
-import { ApiType } from 'api'
+import { ApiType } from '@tumi/api'
 import type { Hono, Schema } from 'hono'
 import { StatusCode } from 'hono/utils/http-status'
 import useSWR, { SWRConfiguration } from 'swr'

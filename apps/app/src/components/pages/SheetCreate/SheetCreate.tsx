@@ -1,4 +1,3 @@
-import { COOKIE_ID } from 'api'
 import { cookies } from 'next/headers'
 import { FormList } from './FormList'
 import { client } from '@/libs/hono'

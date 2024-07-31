@@ -1,5 +1,5 @@
 import { EndpointResponseWithStatusCode } from '@/libs/hono/hooks'
-import { ApiType } from 'api'
+import { ApiType } from '@tumi/api'
 
 export type SheetResponse = EndpointResponseWithStatusCode<
   ApiType,
