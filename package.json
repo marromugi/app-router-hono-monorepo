@@ -15,7 +15,7 @@
     "turbo": "^2.0.9"
   },
   "packageManager": "pnpm@8.15.1",
-   "engines": {
-     "pnpm": ">=8.15.1"
-   }
+  "engines": {
+    "pnpm": ">=8.15.1"
+  }
 }
