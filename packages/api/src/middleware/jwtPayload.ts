@@ -1,4 +1,4 @@
-import { createApp } from '@api/libs/hono'
+import { createApp } from '@/libs/hono'
 
 /**JWT Payload をバリデーションするミドルウェア */
 const app = createApp().use('/', async (c, next) => {

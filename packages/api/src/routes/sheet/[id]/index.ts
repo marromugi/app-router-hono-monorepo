@@ -1,5 +1,5 @@
-import { createApp } from '@api/libs/hono'
-import { z } from '@api/libs/zod'
+import { createApp } from '@/libs/hono'
+import { z } from '@/libs/zod'
 import { zValidator } from '@hono/zod-validator'
 import { PrismaD1 } from '@prisma/adapter-d1'
 import { PrismaClient } from '@prisma/client'

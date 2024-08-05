@@ -18,8 +18,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@api/*": ["./node_modules/@tumi/api/src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

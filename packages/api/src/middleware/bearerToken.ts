@@ -1,5 +1,5 @@
-import { COOKIE_ID } from '@api/lib'
-import { createApp } from '@api/libs/hono'
+import { COOKIE_ID } from '@/lib'
+import { createApp } from '@/libs/hono'
 import { getCookie } from 'hono/cookie'
 
 /**Cookie から Bearerトークンを設定するmiddleware */

@@ -1,4 +1,4 @@
-import { createApp } from '@api/libs/hono'
+import { createApp } from '@/libs/hono'
 import { cors } from 'hono/cors'
 
 export const app = createApp().use('/', (c, next) => {

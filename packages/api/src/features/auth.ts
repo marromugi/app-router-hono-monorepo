@@ -1,4 +1,4 @@
-import { Variables } from '@api/libs/hono'
+import { Variables } from '@/libs/hono'
 import { Sheet, User } from '@prisma/client'
 
 /**JWTのペイロードをもとに対象のシートに権限があるか確認する */

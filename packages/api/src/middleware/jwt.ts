@@ -1,4 +1,4 @@
-import { createApp } from '@api/libs/hono'
+import { createApp } from '@/libs/hono'
 import { jwt } from 'hono/jwt'
 
 const app = createApp().use('/', (c, next) => {

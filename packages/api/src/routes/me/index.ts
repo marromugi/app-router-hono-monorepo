@@ -1,4 +1,4 @@
-import { createApp } from '@api/libs/hono'
+import { createApp } from '@/libs/hono'
 import { PrismaD1 } from '@prisma/adapter-d1'
 import { PrismaClient } from '@prisma/client'
 

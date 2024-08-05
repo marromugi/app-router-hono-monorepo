@@ -1,4 +1,4 @@
-import { VALIDATION_REGEX } from '@api/const/validate'
+import { VALIDATION_REGEX } from '@/const/validate'
 import { z as BaseZod } from 'zod'
 
 export const z = {
