@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts",
-    "build": "tsup"
+    "build": "tsc"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.2",

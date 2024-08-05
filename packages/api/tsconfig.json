@@ -12,6 +12,10 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true
+  },
+  "include": ["./src/lib.ts"]
 }
