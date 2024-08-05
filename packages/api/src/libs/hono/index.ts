@@ -4,6 +4,8 @@ import { JwtVariables } from 'hono/jwt'
 export type Bindings = {
   MY_KV: KVNamespace
   API_SECRET_KEY: string
+  API_PASSWORD_HASH_COUNT: string
+  APP_DOMAIN: string
   DB: D1Database
 }
 
@@ -13,4 +15,5 @@ export type Variables = {
   }
 }
 
-export const createApp = () => new Hono<{ Bindings: Bindings; Variables: Variables }>()
+export const createApp = () =>
+  new Hono<{ Bindings: Bindings; Variables: Variables }>()

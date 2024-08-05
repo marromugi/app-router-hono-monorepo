@@ -3,17 +3,20 @@ import { ButtonBase, Typography } from '@/components/ui/magi'
 import { cookies } from 'next/headers'
 import clsx from 'clsx'
 import { Flex } from '@/components/layouts'
-import { UserIcon } from '@/components/features/user'
-import { formatDate } from 'date-fns'
 import Link from 'next/link'
 import { ROUTES } from '@/const/route'
-import { UsersIcon } from '@heroicons/react/16/solid'
 import { SheetCard } from '@/components/features/sheet'
+import { ClientRequestOptions } from 'hono'
 
 export const DashboardPage = async () => {
-  const requestInit = {
+  const requestInit: ClientRequestOptions = {
     headers: {
       cookie: cookies().toString()
+    },
+    init: {
+      credentials: 'include',
+      mode: 'cors',
+      cache: 'no-store'
     }
   }
 

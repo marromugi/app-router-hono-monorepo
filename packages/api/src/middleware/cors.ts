@@ -1,16 +1,13 @@
 import { createApp } from '@api/libs/hono'
 import { cors } from 'hono/cors'
 
-export const app = createApp().use(
-  '/',
-  cors({
-    origin: ['http://localhost:3000'],
+export const app = createApp().use('/', (c, next) => {
+  const corsMiddlewareHandler = cors({
+    origin: c.env.APP_DOMAIN,
     credentials: true
-    // exposeHeaders: ['set-cookie']
-    // allowHeaders: ['*'],
-    // allowMethods: ['GET'],
-    // maxAge: 60 * 60 * 24
   })
-)
+
+  return corsMiddlewareHandler(c, next)
+})
 
 export default app

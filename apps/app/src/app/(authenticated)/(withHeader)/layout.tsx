@@ -2,6 +2,7 @@ import { Flex } from '@/components/layouts'
 import { Typography } from '@/components/ui/magi'
 import { client } from '@/libs/hono'
 import clsx from 'clsx'
+import { ClientRequestOptions } from 'hono'
 import { cookies } from 'next/headers'
 
 export default async function RootLayout({
@@ -9,11 +10,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const requestInit = {
+  const requestInit: ClientRequestOptions = {
     headers: {
       cookie: cookies().toString()
+    },
+    init: {
+      credentials: 'include',
+      mode: 'cors',
+      cache: 'no-store'
     }
   }
+
   const getMe = async () => {
     const res = await client.api.me.$get({}, requestInit)
     switch (res.status) {

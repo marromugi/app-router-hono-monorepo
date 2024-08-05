@@ -8,6 +8,7 @@ declare global {
       DB: D1Database
       API_SECRET: string
       API_PASSWORD_HASH_COUNT: string
+      APP_DOMAIN: string
     }
   }
 }
